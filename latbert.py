@@ -190,7 +190,7 @@ class LatinBERT():
 		for b in range(len(batched_data)):
 			size=batched_transforms[b].shape
 			b_size=size[0]
-			berts=model.forward(batched_data[b], attention_mask=batched_mask[b], transforms=batched_transforms[b])
+			berts=self.model.forward(batched_data[b], attention_mask=batched_mask[b], transforms=batched_transforms[b])
 			berts=berts.detach()
 			berts=berts.cpu()
 			for row in range(b_size):
