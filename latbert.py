@@ -205,14 +205,14 @@ class LatinBERT():
 
 				out.write("%s\t%s\n" % ("[CLS]", ' '.join("%.5f" % x for x in preds_in_order[idx][0])))
 
-				for t_idx in range(1, len(sentence)-1):
-					token=sentence[t_idx]
+				#for t_idx in range(1, len(sentence)-1):
+				#	token=sentence[t_idx]
 
-					pred=preds_in_order[idx][t_idx]
+					#pred=preds_in_order[idx][t_idx]
 
-					out.write("%s\t%s\n" % (token, ' '.join("%.5f" % x for x in pred)))
+					#out.write("%s\t%s\n" % (token, ' '.join("%.5f" % x for x in pred)))
 
-				out.write("%s\t%s\n" % ("[SEP]", ' '.join("%.5f" % x for x in preds_in_order[idx][len(sentence)-1])))
+				#out.write("%s\t%s\n" % ("[SEP]", ' '.join("%.5f" % x for x in preds_in_order[idx][len(sentence)-1])))
 				out.write("\n")
 
 
