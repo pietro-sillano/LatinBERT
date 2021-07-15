@@ -177,7 +177,43 @@ class LatinBERT():
 			bert_sents.append(bert_sent)
 
 		return bert_sents
+	
+	
+	def write_berts(self,raw_sents,outFileName):
+		sents=convert_to_toks(raw_sents)
+		batch_size=32
+		batched_data, batched_mask, batched_transforms, ordering=self.get_batches(sents, batch_size, self.wp_tokenizer)
 
+		ordered_preds=[]
+
+
+		for b in range(len(batched_data)):
+			size=batched_transforms[b].shape
+			b_size=size[0]
+			berts=model.forward(batched_data[b], attention_mask=batched_mask[b], transforms=batched_transforms[b])
+			berts=berts.detach()
+			berts=berts.cpu()
+			for row in range(b_size):
+				ordered_preds.append([np.array(r) for r in berts[row]])
+
+		preds_in_order = [None for i in range(len(sents))]
+		for i, ind in enumerate(ordering):
+			preds_in_order[ind] = ordered_preds[i]
+
+		with open(outFileName, "w", encoding="utf-8") as out:
+			for idx, sentence in enumerate(sents):
+
+				out.write("%s\t%s\n" % ("[CLS]", ' '.join("%.5f" % x for x in preds_in_order[idx][0])))
+
+				for t_idx in range(1, len(sentence)-1):
+					token=sentence[t_idx]
+
+					pred=preds_in_order[idx][t_idx]
+
+					out.write("%s\t%s\n" % (token, ' '.join("%.5f" % x for x in pred)))
+
+				out.write("%s\t%s\n" % ("[SEP]", ' '.join("%.5f" % x for x in preds_in_order[idx][len(sentence)-1])))
+				out.write("\n")
 
 
 
