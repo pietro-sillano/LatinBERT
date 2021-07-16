@@ -182,6 +182,7 @@ class LatinBERT():
 	def write_berts(self,raw_sents,outFileName):
 		sents=convert_to_toks(raw_sents)
 		batch_size=32
+
 		batched_data, batched_mask, batched_transforms, ordering=self.get_batches(sents, batch_size, self.wp_tokenizer)
 
 		ordered_preds=[]
@@ -213,7 +214,7 @@ class LatinBERT():
 					#out.write("%s\t%s\n" % (token, ' '.join("%.5f" % x for x in pred)))
 
 				#out.write("%s\t%s\n" % ("[SEP]", ' '.join("%.5f" % x for x in preds_in_order[idx][len(sentence)-1])))
-				out.write("\n")
+				#out.write("\n")
 
 
 
