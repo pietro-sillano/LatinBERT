@@ -180,6 +180,8 @@ class LatinBERT():
 	
 	
 	def write_berts(self,raw_sents,outFileName):
+
+
 		sents=convert_to_toks(raw_sents)
 		batch_size=32
 
