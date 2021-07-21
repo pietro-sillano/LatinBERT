@@ -137,9 +137,8 @@ class LatinBERT():
 			return batched_data, batched_mask, batched_transforms, ordering
 
 
-	def get_berts(self, raw_sents, labels):
-		sents_label=convert_to_toks(raw_sents, labels)
-		sents = [s[0] for s in sents_label]
+	def get_berts(self, raw_sents):
+		sents=convert_to_toks(raw_sents)
 		batch_size=32
 		batched_data, batched_mask, batched_transforms, ordering=self.get_batches(sents, batch_size, self.wp_tokenizer)
 
@@ -273,7 +272,7 @@ class LatinTokenizer():
 
 		return wp_tokens
 
-def convert_to_toks(sents,sents_label):
+def convert_to_toks(sents):
 
 	sent_tokenizer = SentenceTokenizer()
 	word_tokenizer = WordTokenizer()
@@ -284,8 +283,8 @@ def convert_to_toks(sents,sents_label):
 		text=data.lower()
 
 		sents=sent_tokenizer.tokenize(text)
-		for i in range(len(sents)):
-			tokens=word_tokenizer.tokenize(sents[i])
+		for sent in sents:
+			tokens=word_tokenizer.tokenize(sent)
 			filt_toks=[]
 			filt_toks.append("[CLS]")
 			for tok in tokens:
@@ -293,7 +292,7 @@ def convert_to_toks(sents,sents_label):
 					filt_toks.append(tok)
 			filt_toks.append("[SEP]")
 
-			all_sents.append((filt_toks,sents_label[i]))
+			all_sents.append(filt_toks)
 
 	return all_sents
 
