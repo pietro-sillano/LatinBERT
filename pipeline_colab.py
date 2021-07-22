@@ -7,11 +7,14 @@ from cltk.tokenizers.lat.lat import LatinWordTokenizer as WordTokenizer
 
 #questa 'e la cartella  dove si salvano i preprocess
 path='LatinBERT/processed' 
-os.mkdir(path)
+if not os.path.exists(path):
+  os.mkdir(path)
 
 #questa 'e la cartella  dove si salvano i token
 token='LatinBERT/token'
-os.mkdir(token)
+if not os.path.exists(token):
+  os.mkdir(token)
+
 
 source='LatinBERT/library_super_reduced'
 #source='LatinBERT/library_reduced'
