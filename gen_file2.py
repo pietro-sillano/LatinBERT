@@ -301,9 +301,12 @@ if __name__ == "__main__":
 			out.write("\n")
 
 		print(data.keys())
-	dbfile = open('pickle', 'ab')
+	dbfile = open(outFileName+'pickle', 'ab')
 	pickle.dump(data, dbfile)                     
 	dbfile.close()
+
+
+
 
 
 ####UTILS
