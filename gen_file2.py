@@ -6,6 +6,7 @@ import numpy as np
 import torch
 from torch import nn
 from transformers import BertModel, BertPreTrainedModel
+import pickle
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -280,7 +281,9 @@ if __name__ == "__main__":
 			out.write("%s\t%s\n" % ("[CLS]", ' '.join("%.5f" % x for x in preds_in_order[idx][0])))
 			frase=' '.join(x for x in sents[idx])
 			
-			data[idx]=(filename,preds_in_order[idx][0],frase)
+			data[idx]=(filename,frase,preds_in_order[idx][0])
+
+
 
 		
 			for t_idx in range(1, len(sentence)-1):
@@ -298,7 +301,9 @@ if __name__ == "__main__":
 			out.write("\n")
 
 		print(data.keys())
-
+		dbfile = open('pickle', 'ab')
+		pickle.dump(data, dbfile)                     
+    	dbfile.close()
 
 
 ####UTILS

@@ -39,7 +39,7 @@ for author in authors:
 
         text=f.read()
         sentences = splitter.tokenize(text)
-        print(author,file,len(sentences))
+        #print(author,file,len(sentences))
         sentences=sentences[:max_sents]
         fout.writelines(["%s\n" % sentence  for sentence in sentences])
         fout.close()
