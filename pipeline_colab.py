@@ -21,7 +21,7 @@ source='LatinBERT/library_super_reduced'
 authors=[]
 for folder in os.listdir(source):
     authors.append(folder)
-print(authors)
+#print(authors)
 
 
 
@@ -50,7 +50,7 @@ i=1
 for txt in os.listdir(path):
 	print("echo ' ",i,' su ',len(os.listdir(path))," ' ",file = scriptfile)
 	#print('python3 ./gen_berts_to_file_aggiornato.py --bertPath ./latin_bert 	# --tokenizerPath ./latin.subword.encoder  	# -f '+path+'/'+txt +' -o token/'+txt)
-	print('python3 ./LatinBERT/gen_file2.py --bertPath ./LatinBERT/latin_bert --tokenizerPath ./LatinBERT/latin.subword.encoder  -f '+ path +'/' + txt +' -o token/' + txt, file = scriptfile )
+	print('python3 ./LatinBERT/gen_file2.py --bertPath ./latin_bert --tokenizerPath ./LatinBERT/latin.subword.encoder  -f '+ path +'/' + txt +' -o token/' + txt, file = scriptfile )
 	i=i+1
 
 scriptfile.close()  
