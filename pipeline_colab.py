@@ -2,17 +2,20 @@ import os
 from cltk.sentence.lat import LatinPunktSentenceTokenizer as SentenceTokenizer
 from cltk.tokenizers.lat.lat import LatinWordTokenizer as WordTokenizer
 
+
+
+
 #questa 'e la cartella  dove si salvano i preprocess
-path='processed' 
+path='LatinBERT/processed' 
 os.mkdir(path)
 
 #questa 'e la cartella  dove si salvano i token
-token=' token'
+token='LatinBERT/token'
 os.mkdir(token)
 
-source='library_super_reduced'
-#source='library_reduced'
-#source='latin_library_text' 
+source='LatinBERT/library_super_reduced'
+#source='LatinBERT/library_reduced'
+#source='LatinBERT/latin_library_text' 
 
 
 authors=[]
@@ -41,13 +44,13 @@ for author in authors:
 
 
 #SCRIPT GENERATOR
-scriptfile = open('script.sh', 'w')
+scriptfile = open('LatinBERT/script.sh', 'w')
 
 i=1
 for txt in os.listdir(path):
 	print("echo ' ",i,' su ',len(os.listdir(path))," ' ",file = scriptfile)
 	#print('python3 ./gen_berts_to_file_aggiornato.py --bertPath ./latin_bert 	# --tokenizerPath ./latin.subword.encoder  	# -f '+path+'/'+txt +' -o token/'+txt)
-	print('python3 ./gen_file2.py --bertPath ./latin_bert --tokenizerPath ./latin.subword.encoder  -f '+ path +'/' + txt +' -o token/' + txt, file = scriptfile )
+	print('python3 ./LatinBERT/gen_file2.py --bertPath ./LatinBERT/latin_bert --tokenizerPath ./LatinBERT/latin.subword.encoder  -f '+ path +'/' + txt +' -o token/' + txt, file = scriptfile )
 	i=i+1
 
 scriptfile.close()  
