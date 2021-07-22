@@ -273,15 +273,18 @@ if __name__ == "__main__":
 	for i, ind in enumerate(ordering):
 		preds_in_order[ind] = ordered_preds[i]
 
-	data = {}
+	data = {
 
-	with open(outFileName, "w", encoding="utf-8") as out:
+	}
+
+	""" with open(outFileName, "w", encoding="utf-8") as out:
 
 		for idx, sentence in enumerate(sents):
-			out.write("%s\t%s\n" % ("[CLS]", ' '.join("%.5f" % x for x in preds_in_order[idx][0])))
+			#out.write("%s\t%s\n" % ("[CLS]", ' '.join("%.5f" % x for x in preds_in_order[idx][0])))
 			frase=' '.join(x for x in sents[idx])
 			
 			data[idx]=(filename,frase,preds_in_order[idx][0])
+			#data[idx]=(filename,frase,preds_in_order[idx][0])
 
 
 
@@ -300,7 +303,17 @@ if __name__ == "__main__":
 
 			out.write("\n")
 
-		print(data.keys())
+
+
+
+ """
+
+	
+	for idx, sentence in enumerate(sents):
+			frase=' '.join(x for x in sents[idx])
+			data[idx]=(filename,frase,preds_in_order[idx][0])
+
+			
 	dbfile = open(outFileName+'pickle', 'ab')
 	pickle.dump(data, dbfile)                     
 	dbfile.close()
@@ -315,6 +328,6 @@ if __name__ == "__main__":
 	import gc
 	gc.collect()
 
-	corretti = open('corretti.txt', 'a')
+	corretti = open('corretti.txt', 'w')
 	print('++++++ FINISHED',filename,'+++++++++')
 	print(filename,file=corretti)
