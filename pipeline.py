@@ -14,8 +14,9 @@ if not os.path.exists(token):
 
 
 #source='library_super_reduced'
-source='library_reduced'
+#source='library_reduced'
 #source='latin_library_text' 
+source='corpus2' 
 
 
 max_docs=10
