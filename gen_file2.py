@@ -68,7 +68,7 @@ def read_file(filename):
 	word_tokenizer = WordTokenizer()
 
 	all_sents=[]
-	with open(filename, encoding="utf-8") as file:
+	with open(filename, encoding="utf-8",errors='ignore') as file:
 		data=file.read()
 
 		# BERT model is lowercase
@@ -288,14 +288,13 @@ if __name__ == "__main__":
 			out.write("\n")
  """
 
-	
+	import os
 	for idx, sentence in enumerate(sents):
 		frase=' '.join(x for x in sents[idx])
-		data[idx]=(filename,frase,preds_in_order[idx][0])
+		data[idx]=(os.path.splitext(filename)[0],frase,preds_in_order[idx][0])
 
 
-    
-    		
+
 	dbfile = open(outFileName, 'wb')
 	pickle.dump(data, dbfile)                     
 	dbfile.close()

@@ -1,1 +1,1 @@
-gallus.txt
+corpus2/galbert_mocg.txt

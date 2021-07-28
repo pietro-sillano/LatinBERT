@@ -15,9 +15,15 @@ i=1
 for txt in os.listdir(path):
 	print("echo ' ",i,' su ',len(os.listdir(path))," ' ",file = scriptfile)
 	
+	output=os.path.splitext(txt)[0]
+	
+	#print('python3 ./gen_file2.py --bertPath '+ bertpath +' --tokenizerPath '+ bertpath+ '/latin.subword.encoder -f '+ path +'/' + txt +' -o ' +pickle +'/' + txt, file = scriptfile )
 	
 	
-	print('python3 ./gen_file2.py --bertPath '+ bertpath +' --tokenizerPath '+ bertpath+ '/latin.subword.encoder -f '+ path +'/' + txt +' -o ' +pickle +'/' + txt, file = scriptfile )
+	print('python3 ./gen_file2.py --bertPath '+ bertpath +' --tokenizerPath '+ bertpath+ '/latin.subword.encoder -f '+ path +'/' + txt +' -o ./pickle/'+output , file = scriptfile )
+		
+		
+		
 	
 	i=i+1
 
