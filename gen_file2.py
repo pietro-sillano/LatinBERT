@@ -7,6 +7,7 @@ import torch
 from torch import nn
 from transformers import BertModel, BertPreTrainedModel
 import pickle
+import os
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -288,10 +289,12 @@ if __name__ == "__main__":
 			out.write("\n")
  """
 
-	import os
+
 	for idx, sentence in enumerate(sents):
 		frase=' '.join(x for x in sents[idx])
 		data[idx]=(os.path.splitext(filename)[0],frase,preds_in_order[idx][0])
+
+
 
 
 

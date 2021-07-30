@@ -1,32 +1,27 @@
-#SCRIPT GENERATOR
-
 import os
-path='corpus2' 
+
+path='library_super_reduced' 
 bertpath='/home/wsojka00/Desktop/latin_bert' 
 
 
-pickle='pickle'
-if not os.path.exists(pickle):
-  os.mkdir(pickle)
+output='pickle_old'
+
+if not os.path.exists(output):
+  os.mkdir(output)
 
 scriptfile = open('script.sh', 'w')
 
 i=1
-for txt in os.listdir(path):
-	print("echo ' ",i,' su ',len(os.listdir(path))," ' ",file = scriptfile)
-	
-	output=os.path.splitext(txt)[0]
-	
-	#print('python3 ./gen_file2.py --bertPath '+ bertpath +' --tokenizerPath '+ bertpath+ '/latin.subword.encoder -f '+ path +'/' + txt +' -o ' +pickle +'/' + txt, file = scriptfile )
-	
-	
-	print('python3 ./gen_file2.py --bertPath '+ bertpath +' --tokenizerPath '+ bertpath+ '/latin.subword.encoder -f '+ path +'/' + txt +' -o ./pickle/'+output , file = scriptfile )
-		
-		
-		
-	
-	i=i+1
 
-scriptfile.close()  
+for a,b,c in os.walk(path):
+	for txt in c:
 
+		print("echo ' ",i,' su ',len(os.listdir(path))," ' ",file = scriptfile)
+	
+		outfile=os.path.splitext(txt)[0]
+	
+		#print('python3 ./gen_file2.py --bertPath '+ bertpath +' --tokenizerPath '+ bertpath+ '/latin.subword.encoder -f '+ path +'/'+ b +'/' + txt +' -o  '+'/'+output+'/' +outfile , file = scriptfile )
+		print('python3 ./gen_file2.py --bertPath '+ bertpath +' --tokenizerPath '+ bertpath+ '/latin.subword.encoder -f '+ a +'/' + txt +' -o  '+'./'+output+'/' +outfile , file = scriptfile )
+		i=i+1
 
+scriptfile.close()
