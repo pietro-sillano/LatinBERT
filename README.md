@@ -66,6 +66,7 @@ In these notebooks there is the analysis of similarity and clustering and etc et
 
 1. Berts_model_colab.ipynb is the google Colab implementation of the python script_generator and the bash script. Moreover you can automatically download the pickle files.
 
+2. analysis_from_pickles.ipynb is the first draft of analysis using cosine similarity
 
   
   
