@@ -13,12 +13,16 @@ of corpus2. how to use the pickle files is in Gallus Notebook.
 
 - pickle_latin_library_text contain the processed vectors from the text of library_reduced.
 
-- 
+- analysis contain different notebooks of analysis
+
+- utils contains different python scripts 
+
 
 # Files
 - script_generator.py is a python script for generate the bash script that compute the bert representation of the given texts and it saves the representation in a convenient way that is pickle files.
 in this file you have to set the source folder, the output folder and the folder in which the Bert Model is contained.
 
+- script_generator_colab is the same python script but adapted for colab usage
 - text_to_pickle.py is the python script that is called by the bash script.sh.
 you dont have to set anything in this file.
 
@@ -59,6 +63,9 @@ To use the pickle files you have to:
     
 # Notebooks
 In these notebooks there is the analysis of similarity and clustering and etc etc
+
+1. Berts_model_colab.ipynb is the implementation of the python script_generator and the bash script. Moreover you can automatically download the pickle files.
+
 
   
   
