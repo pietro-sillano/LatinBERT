@@ -1,4 +1,5 @@
 python3 scripts/gen_berts_to_file.py --bertPath ../../models/latin_bert --tokenizerPath ../../models/subword_tokenizer_latin/latin.subword.encoder -f data/latin_library_text/caesar_bc1.txt -o data/latin_library_bert/caesar_bc1.txt
+
 python3 scripts/gen_berts_to_file.py --bertPath ../../models/latin_bert --tokenizerPath ../../models/subword_tokenizer_latin/latin.subword.encoder -f data/latin_library_text/caesar_bc2.txt -o data/latin_library_bert/caesar_bc2.txt
 python3 scripts/gen_berts_to_file.py --bertPath ../../models/latin_bert --tokenizerPath ../../models/subword_tokenizer_latin/latin.subword.encoder -f data/latin_library_text/caesar_bc3.txt -o data/latin_library_bert/caesar_bc3.txt
 python3 scripts/gen_berts_to_file.py --bertPath ../../models/latin_bert --tokenizerPath ../../models/subword_tokenizer_latin/latin.subword.encoder -f data/latin_library_text/caesar_bellafr.txt -o data/latin_library_bert/caesar_bellafr.txt
