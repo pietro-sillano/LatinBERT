@@ -45,7 +45,18 @@ Example:
         
         bash script.sh
         
-        
+4. You'll find the pickle databases in the output folder and from here you can start your analysis of the bert representations.
+
+# How to manage the pickle files
+The Bert representations are saved in a dictionary form and then stored in a pickle files for conveniency.
+To use the pickle files you have to:
+    
+    import pickle
+    data={}
+    dbfile = open('picklefilename','rb')   
+    data=pickle.load(dbfile)
+    
+    
 # Notebooks
 In these notebooks there is the analysis of similarity and clustering and etc etc
 
