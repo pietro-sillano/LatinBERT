@@ -2,7 +2,7 @@ import os
 
 path='LatinBERT/library_super_reduced' 
 
-bertpath='/latin_bert' 
+bertpath='latin_bert' 
 encoder_path='LatinBERT'
 
 output='pickle'
