@@ -36,7 +36,7 @@ if __name__ == "__main__":
       
           outfile=os.path.splitext(txt)[0]
       
-          print('python3 LatinBERT/text_to_pickle.py --bertPath '+ bertpath +' --tokenizerPath '+ encoder_path+ '/latin.subword.encoder -f '+ a + '/' + txt +' -o  '+'./'+output+'/' +outfile )
+          #print('python3 LatinBERT/text_to_pickle.py --bertPath '+ bertpath +' --tokenizerPath '+ encoder_path+ '/latin.subword.encoder -f '+ a + '/' + txt +' -o  '+'./'+output+'/' +outfile )
           
           print('python3 LatinBERT/text_to_pickle.py --bertPath '+ bertpath +' --tokenizerPath '+ encoder_path+ '/latin.subword.encoder -f '+ a + '/' + txt +' -o  '+'./'+output+'/' +outfile , file = scriptfile )
           i=i+1
