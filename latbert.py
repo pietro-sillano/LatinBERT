@@ -140,9 +140,10 @@ class LatinBERT():
 	def get_berts(self, raw_sents, labels):
 		sents_label=convert_to_toks(raw_sents, labels)
 		sents = [s[0] for s in sents_label]
+		author= [s[1] for s in sents_label]
+
 		batch_size=32
 		batched_data, batched_mask, batched_transforms, ordering=self.get_batches(sents, batch_size, self.wp_tokenizer)
-
 		ordered_preds=[]
 		for b in range(len(batched_data)):
 			size=batched_transforms[b].shape
@@ -177,7 +178,7 @@ class LatinBERT():
 
 			bert_sents.append(bert_sent)
 
-		return bert_sents, labels
+		return bert_sents, author
 	
 	
 	def write_berts(self,raw_sents,outFileName):
