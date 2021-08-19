@@ -177,7 +177,7 @@ class LatinBERT():
 
 			bert_sents.append(bert_sent)
 
-		return bert_sents
+		return bert_sents, labels
 	
 	
 	def write_berts(self,raw_sents,outFileName):
